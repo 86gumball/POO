@@ -17,15 +17,20 @@ public class Ficha1 {
         return desc;
     }
     public double eurosParaLibras(double valor, double taxaConversao) {
-        // TODO: Implement method
+        double libras = valor*taxaConversao;
         return 0;
     }
     public long factorial(int num) {
-        // TODO: Implement method
-        return 0;
+        if (num == 0) {
+            return 1;
+        } else {
+            return num * factorial (num -1);
+        }
     }
     public long tempoGasto() {
-        // TODO: Implement method
-        return 0;
+        long start = System.currentTimeMillis();
+        factorial(5000);
+        long end = System.currentTimeMillis();
+        return (end - start);
     }
 }
