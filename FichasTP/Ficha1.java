@@ -12,8 +12,9 @@ public class Ficha1 {
         return max;
     }
     public String criaDescricaoConta(String nome, double saldo) {
-        // TODO: Implement method
-        return "0";
+        String desc;
+        desc = "Nome: " + nome + "\nSaldo: " + saldo + "€\n";
+        return desc;
     }
     public double eurosParaLibras(double valor, double taxaConversao) {
         // TODO: Implement method
