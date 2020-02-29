@@ -208,6 +208,8 @@ public class Main extends Ficha1 {
                 case 'x': // Exit condition
                     System.out.println("Goodbye");
                     break;
+                default:
+                    System.out.println("Invalid Input");
             }
         }
     }
