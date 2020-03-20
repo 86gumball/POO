@@ -1,12 +1,50 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class EncEficiente {
     String nome;
-    String nif;
+    int nif;
     String adress;
     String numero;
     String data;
+    int exemplo;
     ArrayList<LinhaEncomenda> encomendas;
+
+    public EncEficiente() {
+        this.nome = "Joao";
+        this.nif = 284201213;
+        this.adress = "Rua da Liberdade";
+        this.numero = "A42932";
+        this.data = "10/10/1995";
+        this.encomendas = new ArrayList<LinhaEncomenda>();
+    }
+
+    public EncEficiente(String nome,
+                        int nif,
+                        String adress,
+                        String numero,
+                        String data) {
+        this.nome = nome;
+        this.nif = nif;
+        this.adress = adress;
+        this.numero = numero;
+        this.data = data;
+        this.encomendas = new ArrayList<LinhaEncomenda>();
+    }
+
+    public EncEficiente(String nome,
+                        int nif,
+                        String adress,
+                        String numero,
+                        String data,
+                        ArrayList<LinhaEncomenda> encomendas) {
+        this.nome = nome;
+        this.nif = nif;
+        this.adress = adress;
+        this.numero = numero;
+        this.data = data;
+        this.encomendas = encomendas;
+    }
 
     /**
      * Set nome.
@@ -22,7 +60,7 @@ public class EncEficiente {
      *
      * @param nif the value to set.
      */
-    public void setNif(String nif) {
+    public void setNif(int nif) {
         this.nif = nif;
     }
 
@@ -74,9 +112,9 @@ public class EncEficiente {
     /**
      * Get nif.
      *
-     * @return nif as String.
+     * @return nif as int.
      */
-    public String getNif() {
+    public int getNif() {
         return nif;
     }
 
@@ -114,5 +152,21 @@ public class EncEficiente {
      */
     public ArrayList<LinhaEncomenda> getEncomendas() {
         return encomendas;
+    }
+
+    public void addLinhaEncomenda(LinhaEncomenda enc) {
+        this.encomendas.add(enc);
+    }
+
+    public double calculaValorTotal(){
+        double precoTotal = 0;
+        Iterator ite = this.encomendas.iterator();
+        LinhaEncomenda tmp; 
+        while (ite.hasNext()) {
+            // tmp = new LinhaEncomenda(ite.next());
+            System.out.printf("%s\n", ite.next().getClass().toString());
+            // precoTotal += ite.next().calculaValorLinhaEnc();
+        }
+        return precoTotal;
     }
 }
