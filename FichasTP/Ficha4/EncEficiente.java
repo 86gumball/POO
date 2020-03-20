@@ -160,13 +160,54 @@ public class EncEficiente {
 
     public double calculaValorTotal(){
         double precoTotal = 0;
-        Iterator ite = this.encomendas.iterator();
-        LinhaEncomenda tmp; 
+        Iterator<LinhaEncomenda> ite = this.encomendas.iterator();
         while (ite.hasNext()) {
-            // tmp = new LinhaEncomenda(ite.next());
-            System.out.printf("%s\n", ite.next().getClass().toString());
-            // precoTotal += ite.next().calculaValorLinhaEnc();
+            precoTotal += ite.next().calculaValorLinhaEnc();
         }
         return precoTotal;
+    }
+
+    public double calculaDescontoTotal() {
+        double descontoTotal = 0;
+        Iterator<LinhaEncomenda> ite = this.encomendas.iterator();
+        while (ite.hasNext()) {
+            descontoTotal += ite.next().calculaValorDesconto();
+        }
+        return descontoTotal;
+    }
+
+    public int numeroTotalProdutos() {
+        int totalProdutos = 0;
+        Iterator<LinhaEncomenda> ite = this.encomendas.iterator();
+        while (ite.hasNext()) {
+            totalProdutos += ite.next().getQuantidade();
+        }
+        return totalProdutos;
+    }
+
+    public boolean existeProdutoEncomenda(LinhaEncomenda linha) {
+        boolean existence = false;
+        Iterator<LinhaEncomenda> ite = this.encomendas.iterator();
+        while (ite.hasNext() && !existence) {
+            if (ite.next().equals(linha)) {
+                existence = true;
+            }
+        }
+        return existence;
+    }
+
+    public void adicionaLinha(LinhaEncomenda linha) {
+        this.encomendas.add(linha);
+    }
+
+    public void removeProduto(String codProd) {
+        boolean wasRemoved = false;
+        Iterator<LinhaEncomenda> ite = this.encomendas.iterator();
+        while (ite.hasNext() && !wasRemoved) {
+            if (ite.next().getReferencia().equals(codProd)) {
+                ite.remove();
+                wasRemoved = true;
+            }
+        }
     }
 }
