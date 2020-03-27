@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Ficha4_1 {
+public class Ficha4_2 {
     public static void main (String[] args) {
         // "ref", "desc", prec, quant, imposto, desconto
         LinhaEncomenda enc0 = new LinhaEncomenda("24", "7", 2, 1, 0.23, 0.24);
